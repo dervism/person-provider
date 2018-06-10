@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <properties>
-        <java.version>10</java.version>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -65,8 +65,8 @@
                 <configuration>
                     <systemPropertyVariables>
                         <pact.provider.version>
-                                      ${project.version}
-                                </pact.provider.version>
+                              ${project.version}
+                        </pact.provider.version>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>
