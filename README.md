@@ -1,11 +1,14 @@
 # Person Provider
 
-An example application showing how to write Pact Provider tests with JUnit and Maven and publish the verification results back to a Pact Broker.
+An example SparkJava-application showing how to write Pact Provider tests with JUnit and Maven and publish the verification results back to a Pact Broker.
+
+The PactPersonProviderTest class will start a local instance of the provider before running the Pact-verification. The provider is automatically stopped after the test has completed (regardless of the test result).
 
 ## Setup
 
 You need to setup a Pact Broker and export the username and password (if it's authenticated):
 
+    export PACTBROKER_URL="http://localhost"
     export PACTBROKER_USERNAME=xxxxxxxxx
     export PACTBROKER_PASSWORD=xxxxxxxxx
     

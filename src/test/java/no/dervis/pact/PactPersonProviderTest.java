@@ -17,7 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @Provider("person-provider")
 @PactBroker(
         protocol = "https",
-        host = "${PACT_BROKER:norwegianlga.pact.dius.com.au}",
+        host = "${PACTBROKER_URL:norwegianlga.pact.dius.com.au}",
         authentication = @PactBrokerAuth(username = "${PACTBROKER_USERNAME}", password = "${PACTBROKER_PASSWORD}"),
         port = "443")
 @IgnoreNoPactsToVerify
