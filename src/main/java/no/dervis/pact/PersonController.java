@@ -1,5 +1,6 @@
 package no.dervis.pact;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpStatus;
 import spark.Spark;
 
@@ -24,15 +25,18 @@ public class PersonController {
         path("/person", () ->  {
             get("/:id", (req, res) -> {
                 int id = parseInt(req.params("id"));
-                return personList.get(id);
+                res.type("application/json;charset=utf-8");
+                return new ObjectMapper().writeValueAsString(personList.get(id));
             });
 
             exception(IndexOutOfBoundsException.class, (exception, request, response) -> {
+                exception.printStackTrace();
                 response.status(HttpStatus.SC_BAD_REQUEST);
                 response.body(exception.getLocalizedMessage());
             });
 
             exception(NumberFormatException.class, (exception, request, response) -> {
+                exception.printStackTrace();
                 response.status(HttpStatus.SC_BAD_REQUEST);
                 response.body(exception.getLocalizedMessage());
             });
