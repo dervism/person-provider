@@ -22,7 +22,7 @@ public class PersonController {
 
         port(9999);
 
-        path("/person", () ->  {
+        path("/api/person", () ->  {
             get("/:id", (req, res) -> {
                 int id = parseInt(req.params("id"));
                 res.type("application/json;charset=utf-8");
