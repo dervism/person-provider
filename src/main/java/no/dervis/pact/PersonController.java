@@ -19,6 +19,7 @@ public class PersonController {
 
     public PersonController() {
         personList = new ArrayList<>();
+        //addPerson(new Person(0, "Test", 50));
 
         port(9999);
 
