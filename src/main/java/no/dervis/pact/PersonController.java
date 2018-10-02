@@ -18,11 +18,15 @@ public class PersonController {
     private List<Person> personList;
 
     public PersonController() {
-        personList = new ArrayList<>();
+        this(new ArrayList<>());
+    }
+
+    public PersonController(List<Person> personList) {
+        this.personList = personList;
 
         port(9999);
 
-        path("/person", () ->  {
+        path("/api/person", () ->  {
             get("/:id", (req, res) -> {
                 int id = parseInt(req.params("id"));
                 res.type("application/json;charset=utf-8");
