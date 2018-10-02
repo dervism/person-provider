@@ -43,10 +43,6 @@ public class PersonController {
         });
     }
 
-    public void stop() {
-        Spark.stop();
-    }
-
     public boolean addPerson(Person person) {
         return personList.add(person);
     }

@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
+import spark.Spark;
 
 @Provider("person-provider")
 @PactBroker(
@@ -43,7 +44,7 @@ class PactPersonProviderTest {
 
     @AfterAll
     public static void after() {
-        person.stop();
+        Spark.stop();
     }
 
     @State("a person exists")

@@ -11,13 +11,14 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pactVersion>3.5.23</pactVersion>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>au.com.dius</groupId>
             <artifactId>pact-jvm-provider-junit5_2.12</artifactId>
-            <version>3.5.17</version>
+            <version>${pactVersion}</version>
         </dependency>
 
         <dependency>
