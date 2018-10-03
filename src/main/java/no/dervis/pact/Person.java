@@ -6,9 +6,6 @@ public class Person {
 
     private String name;
 
-    private String firstname;
-    private String lastname;
-
     private int age;
 
     public Person() {}
@@ -22,8 +19,6 @@ public class Person {
     public Person(int id, String name, String firstname, String lastname, int age) {
         this.id = id;
         this.name = name;
-        this.firstname = firstname;
-        this.lastname = lastname;
         this.age = age;
     }
 
@@ -49,22 +44,6 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     @Override

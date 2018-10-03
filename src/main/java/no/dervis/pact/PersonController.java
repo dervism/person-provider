@@ -33,6 +33,12 @@ public class PersonController {
                 return new ObjectMapper().writeValueAsString(personList.get(id));
             });
 
+            get("/",  (req, res) -> {
+                int id = parseInt(req.queryParams("fnr"));
+                res.type("application/json;charset=utf-8");
+                return new ObjectMapper().writeValueAsString(personList.get(id));
+            });
+
             exception(IndexOutOfBoundsException.class, (exception, request, response) -> {
                 exception.printStackTrace();
                 response.status(HttpStatus.SC_BAD_REQUEST);

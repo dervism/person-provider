@@ -1,0 +1,13 @@
+GET http://localhost:9999/api/person/?fnr=0
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+
+GET http://localhost:9999/api/person/0
+Accept: */*
+Cache-Control: no-cache
+
+###
+
