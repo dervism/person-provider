@@ -16,7 +16,7 @@ You can register a free hosted Pact Broker here: https://pact.dius.com.au/ or yo
 
 In order to automatically publish verification results, set the following environment variable to true:
 
-    $ export pact.verifier.publishResults=true
+    pact.verifier.publishResults=true
 
 Leave it unset or set it to false, to disable automatic publishing.
 
