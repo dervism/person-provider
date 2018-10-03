@@ -65,9 +65,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <pact.provider.version>
-                              ${project.version}
-                        </pact.provider.version>
+                        <pact.provider.version>${project.version}</pact.provider.version>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>
