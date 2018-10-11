@@ -2,16 +2,12 @@ package no.dervis.pact;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpStatus;
-import spark.Spark;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
-import static spark.Spark.exception;
-import static spark.Spark.get;
-import static spark.Spark.path;
-import static spark.Spark.port;
+import static spark.Spark.*;
 
 public class PersonController {
 
@@ -24,22 +20,23 @@ public class PersonController {
     public PersonController(List<Person> personList) {
         this.personList = personList;
 
+        String contentTypeJson = "application/json;charset=utf-8";
+
         port(9999);
 
         path("/api/person", () ->  {
 
-            get("",  (req, res) -> {
-                int id = parseInt(req.queryParams("fnr"));
-                res.type("application/json;charset=utf-8");
+            get("",  (request, response) -> {
+                int id = parseInt(request.queryParams("fnr"));
+                response.type(contentTypeJson);
                 return new ObjectMapper().writeValueAsString(personList.get(id));
             });
 
             get("/:id", (req, res) -> {
                 int id = parseInt(req.params("id"));
-                res.type("application/json;charset=utf-8");
+                res.type(contentTypeJson);
                 return new ObjectMapper().writeValueAsString(personList.get(id));
             });
-
 
             exception(IndexOutOfBoundsException.class, (exception, request, response) -> {
                 exception.printStackTrace();
