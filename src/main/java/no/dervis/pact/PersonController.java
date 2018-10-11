@@ -45,41 +45,15 @@ public class PersonController {
             });
 
             post("", (request, response) -> {
-                Person person = new ObjectMapper().readValue(request.body(), Person.class);
-                int id = personList.size();
-                addPerson(new Person(id, person.getName(), person.getAge()));
-
-                response.status(200);
-                return id;
+                return 200;
             });
 
             put("", (request, response) -> {
-                Person updatedPerson = new ObjectMapper().readValue(request.body(), Person.class);
-
-                if (!personExist(updatedPerson.getId())) {
-                    return handlePersonDoesNotExist(response);
-                }
-
-                Person existingPerson = personList.get(updatedPerson.getId());
-                existingPerson.setName(updatedPerson.getName());
-                existingPerson.setAge(updatedPerson.getAge());
-
-                response.status(200);
-                return "Ok";
+                return 200;
             });
 
             delete("/:id", (request, response) -> {
-
-                int id = parseInt(request.params("id"));
-
-                if (!personExist(id)) {
-                    return handlePersonDoesNotExist(response);
-                }
-
-                personList.remove(id);
-
-                response.status(200);
-                return "Ok";
+                return 200;
             });
 
             exception(IndexOutOfBoundsException.class, (exception, request, response) -> {
