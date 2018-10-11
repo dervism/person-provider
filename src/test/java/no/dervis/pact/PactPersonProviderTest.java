@@ -35,7 +35,6 @@ class PactPersonProviderTest {
     @BeforeAll
     public static void beforeAll() {
         person = new PersonController();
-        person.addPerson(new Person(0, "Test", 50));
     }
 
     @BeforeEach
@@ -50,14 +49,9 @@ class PactPersonProviderTest {
 
     @State("a person exists")
     public void verifyPersonExists() {
-        System.out.println("Single person must exist");
+        System.out.println("A person must exist");
+        person.addPerson(new Person("Test", 50));
 
     }
-
-    @State("another person exists")
-    public void verifyAnotherPersonExists() {
-        System.out.println("Another person must exist ");
-    }
-
 
 }

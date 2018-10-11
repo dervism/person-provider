@@ -1,5 +1,7 @@
 package no.dervis.pact;
 
+import java.util.Objects;
+
 public class Person {
 
     private int id;
@@ -10,13 +12,12 @@ public class Person {
 
     public Person() {}
 
-    public Person(int id, String name, int age) {
-        this.id = id;
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public Person(int id, String name, String firstname, String lastname, int age) {
+    public Person(int id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -44,6 +45,21 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id &&
+                age == person.age &&
+                Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age);
     }
 
     @Override
