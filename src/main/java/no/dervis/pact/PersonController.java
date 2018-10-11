@@ -27,17 +27,19 @@ public class PersonController {
         port(9999);
 
         path("/api/person", () ->  {
+
+            get("",  (req, res) -> {
+                int id = parseInt(req.queryParams("fnr"));
+                res.type("application/json;charset=utf-8");
+                return new ObjectMapper().writeValueAsString(personList.get(id));
+            });
+
             get("/:id", (req, res) -> {
                 int id = parseInt(req.params("id"));
                 res.type("application/json;charset=utf-8");
                 return new ObjectMapper().writeValueAsString(personList.get(id));
             });
 
-            get("/",  (req, res) -> {
-                int id = parseInt(req.queryParams("fnr"));
-                res.type("application/json;charset=utf-8");
-                return new ObjectMapper().writeValueAsString(personList.get(id));
-            });
 
             exception(IndexOutOfBoundsException.class, (exception, request, response) -> {
                 exception.printStackTrace();
