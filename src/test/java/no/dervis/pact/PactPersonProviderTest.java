@@ -51,7 +51,11 @@ class PactPersonProviderTest {
     public void verifyPersonExists() {
         System.out.println("A person must exist");
         person.addPerson(new Person("Test", 50));
+    }
 
+    @State("a person can be created")
+    public void verifyPersonCanBeCreated() {
+        System.out.println("A person can be created.");
     }
 
 }

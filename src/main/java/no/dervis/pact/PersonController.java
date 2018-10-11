@@ -9,7 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
-import static spark.Spark.*;
+import static spark.Spark.delete;
+import static spark.Spark.exception;
+import static spark.Spark.get;
+import static spark.Spark.path;
+import static spark.Spark.port;
+import static spark.Spark.post;
+import static spark.Spark.put;
 
 public class PersonController {
 
@@ -45,7 +51,9 @@ public class PersonController {
             });
 
             post("", (request, response) -> {
-                return 200;
+                response.status(201);
+
+                return "Ok";
             });
 
             put("", (request, response) -> {
