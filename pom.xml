@@ -11,7 +11,7 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <pactVersion>3.5.23</pactVersion>
+        <pactVersion>3.5.24</pactVersion>
         <PACT_PUBLISH_RESULTS>false</PACT_PUBLISH_RESULTS>
     </properties>
 
