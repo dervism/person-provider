@@ -11,8 +11,8 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <pactVersion>3.5.24</pactVersion>
-        <PACT_PUBLISH_RESULTS>false</PACT_PUBLISH_RESULTS>
+        <pactVersion>3.5.23</pactVersion>
+        <PACT_PUBLISH_RESULTS>true</PACT_PUBLISH_RESULTS>
     </properties>
 
     <dependencies>
@@ -63,7 +63,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>2.22.0</version>
                 <configuration>
                     <systemPropertyVariables>
                         <pact.provider.version>${project.version}</pact.provider.version>

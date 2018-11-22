@@ -56,7 +56,7 @@ public class PersonController {
                                 .readValue(request.body(), Person.class)
                 );
 
-                response.status(205);
+                response.status(201);
 
                 return "Ok";
             });
