@@ -47,6 +47,8 @@ public class PersonController {
                     return handlePersonDoesNotExist(response);
                 }
 
+                response.status(201);
+
                 return new ObjectMapper().writeValueAsString(personList.get(id));
             });
 
