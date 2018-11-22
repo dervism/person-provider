@@ -51,7 +51,12 @@ public class PersonController {
             });
 
             post("", (request, response) -> {
-                response.status(201);
+                addPerson(
+                        new ObjectMapper()
+                                .readValue(request.body(), Person.class)
+                );
+
+                response.status(205);
 
                 return "Ok";
             });
