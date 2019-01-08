@@ -4,30 +4,37 @@ An example SparkJava-application showing how to write Pact Provider tests with J
 
 The PactPersonProviderTest class will start a local instance of the provider before running the Pact-verification. The provider is automatically stopped after the test has completed (regardless of the test result).
 
+The project reqiures Maven version 3.6 or above.
+
 ## Setup
 
-You need to setup a Pact Broker and export the username and password (if it's authenticated):
+1. You need a Pact Broker. You can register a free hosted Pact Broker here: https://pact.dius.com.au/, or you can spin up your own instance with Docker Compose. The instance will be available at http://localhost:80) without authentication.
 
-    $ export PACTBROKER_URL="http://localhost"
-    $ export PACTBROKER_USERNAME=xxxxxxxxx
-    $ export PACTBROKER_PASSWORD=xxxxxxxxx
+    $ cd docker-app && docker-compose up -d
+
+2. You need to export the broker url, and also username and password (only required if you use a hosted Pact Broker, or if your own Pact Broker is authenticated:
+
+    $ export PACTBROKER_URL=http://localhost
+    $ export PACTBROKER_USERNAME=xxxxxxxxx && export PACTBROKER_PASSWORD=xxxxxxxxx
+
+3. Make sure you have Maven minimum version 3.6. If you don't, you can use Maven Version Manager (mvnvm) to automatically download and run it. First check your existing Maven version:
+
+    $ mvn -v
+
+If the version is less than 3.6.0, then get a copy of `mvnvm`:
+
+    $ mkdir -p ~/bin && curl -s https://bitbucket.org/mjensen/mvnvm/raw/master/mvn > ~/bin/mvn && chmod 0755 ~/bin/mvn
     
-You can register a free hosted Pact Broker here: https://pact.dius.com.au/ or you can spin up you own instance with Docker Compose: https://github.com/dervism/pact-jvmio/tree/master/docker-app (the instance will be available at http://localhost:80) without authentication.
+4. You can now build and test the project:
 
-In order to automatically publish verification results, set the following environment variable to true:
+    $ mvn clean install
 
-    pact.verifier.publishResults=true
+If you use `mvnvm`, then use this command:
 
-Leave it unset or set it to false, to disable automatic publishing.
+    $ ~/bin/mvn clean install
 
-### To switch Java version while testing:
+5. In order to automatically publish verification results, set the following environment variable to true:
 
-1. /usr/libexec/java_home -V
-2. Depending on what you have installed:
+    -Dpact.verifier.publishResults=true
 
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-    
-    For JDK10:
-    export JAVA_HOME=`/usr/libexec/java_home -v 10`
-
-3. Update the java.version property in the pom.xml file accordingly.
+Leave it unset, or set it to false, to disable automatic publishing of verification status to the Pact Broker. When building locally, leave it unset or set to false. When building in a build server, set it to true.
