@@ -23,7 +23,7 @@ The project reqiures Maven version 3.6 or above.
 
 If the version is less than 3.6.0, then get a copy of `mvnvm`:
 
-    $ mkdir -p ~/bin && curl -s https://bitbucket.org/mjensen/mvnvm/raw/master/mvn > ~/bin/mvn && chmod 0755 ~/bin/mvn
+    `$ mkdir -p ~/bin && curl -s https://bitbucket.org/mjensen/mvnvm/raw/master/mvn > ~/bin/mvn && chmod 0755 ~/bin/mvn`
     
 4. You can now build and test the project:
 
