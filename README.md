@@ -33,7 +33,7 @@ If you use `mvnvm`, then use this command:
 
     $ ~/bin/mvn clean install
 
-5. In order to automatically publish verification results, set the following environment variable to true:
+5. In order to automatically publish verification results, set the `pact.verifier.publishResults` environment variable to true:
 
     `$ mvn clean install -Dpact.verifier.publishResults=true`
 
