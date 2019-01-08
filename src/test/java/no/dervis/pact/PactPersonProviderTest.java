@@ -19,7 +19,7 @@ import spark.Spark;
 @PactBroker(
         protocol = "https",
         host = "${PACTBROKER_URL:nav.pact.dius.com.au}",
-        authentication = @PactBrokerAuth(username = "${PACTBROKER_USERNAME}", password = "${PACTBROKER_PASSWORD}"),
+        authentication = @PactBrokerAuth(username = "${PACTBROKER_USERNAME:demo}", password = "${PACTBROKER_PASSWORD:demo}"),
         port = "443")
 @IgnoreNoPactsToVerify
 class PactPersonProviderTest {
