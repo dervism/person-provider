@@ -35,6 +35,6 @@ If you use `mvnvm`, then use this command:
 
 5. In order to automatically publish verification results, set the following environment variable to true:
 
-    -Dpact.verifier.publishResults=true
+    $ mvn clean install -Dpact.verifier.publishResults=true
 
 Leave it unset, or set it to false, to disable automatic publishing of verification status to the Pact Broker. When building locally, leave it unset or set to false. When building in a build server, set it to true.
